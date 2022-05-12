@@ -30,5 +30,17 @@ def tables():
 def menu():
     return render_template('menu.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+@app.route('/401')
+def error_401():
+    return render_template('401.html')
+
+@app.route('/404')
+def error_404():
+    return render_template('404.html')
+
+@app.route('/500')
+def error_500():
+    return render_template('500.html')
+
+if __name__ == '__main__': ## 서버 실행
+    app.run(host = '0.0.0.0', debug=True)
