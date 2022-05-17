@@ -42,5 +42,14 @@ def error_404():
 def error_500():
     return render_template('500.html')
 
+@app.route('/register')
+def register():
+    return render_template('register.html')
+
+@app.route('/password')
+def password():
+    return render_template('password.html')
+
+
 if __name__ == '__main__': ## 서버 실행
     app.run(host = '0.0.0.0', debug=True)
