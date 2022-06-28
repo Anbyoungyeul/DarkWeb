@@ -14,16 +14,18 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="/">Dark Web Current Trends</a>
+            <a class="navbar-brand ps-3" href="/">Home</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button> 
             <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
+            <form class = 'search'>
+                <button class = 'img-button' type = 'submit' name = 'click' value =''>
+                    <i class='fas fa-search'></i>
+                <input class='keyword'type = 'text' name = 'search' maxlength = 200 value ='' autocomplete = 'off'>
+                <select class = 'SelectSearch' name = 'WhichSearch'>
+                    <option id='google' value = 'google'>Google</option>
+                    <option id='naver' value = 'naver'>Naver</option>
+                </select>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
@@ -103,17 +105,17 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        <div class="small">SCHCSRC Project</div>
+                        DarkWeb Current Trends
                     </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Category</h1>
+                        <h1 class="mt-4">DarkWeb Current Trends</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">list</li>
+                            <li class="breadcrumb-item active">BIG 4 List</li>
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
@@ -205,14 +207,20 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                        {% for i in data_list %}
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <td>i["URL"]</td>
+                                            <td>i["Engine"]</td>
+                                            <td>i["State"]</td>
+                                            <td>i["Server"]</td>
+                                            <td>i["Keyword"]</td>
+                                            <td>i["Title"]</td>
+                                            <td>i["Language"]</td>
+                                            <td>i["Code"]</td>
+                                            <td>i["TextCode"]</td>
+                                            <td>i["Time"]</td>
                                         </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -240,5 +248,18 @@
         <script src="../static/assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="../static/js/datatables-simple-demo.js"></script>
+        <script src="../static/js/search.js"></script>
+        <script>
+            function searchword(){
+                let searchValue = document.getElementById('search-input').value.trim();
+                if(searchValue.length>1){
+                    location.href = "https://www.google.com/search?q="+searchValue;
+                }
+                else{
+                    alert('검색어(' + searchValue + ')가 너무 짧습니다.');
+                }
+
+            };
+        </script>
     </body>
 </html>

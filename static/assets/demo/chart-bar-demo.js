@@ -9,17 +9,17 @@ var myLineChart = new Chart(ctx, {
   data: {
     labels: ["Porn", "Bitcoin", "Drug", "Counterfeit", "Murder", "Hack", "Weapon"],
     datasets: [{
-      label: "Revenue",
+      label: "Distribution ratio",
       backgroundColor: "rgba(2,117,216,1)",
       borderColor: "rgba(2,117,216,1)",
-      data: [4215, 5312, 6251, 7841, 9821, 14984, 10000],
+      data: [10, 10, 10, 10, 10, 10, 40],
     }],
   },
   options: {
     scales: {
       xAxes: [{
         time: {
-          unit: 'month'
+          unit: '%'
         },
         gridLines: {
           display: false
@@ -31,8 +31,8 @@ var myLineChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 15000,
-          maxTicksLimit: 5
+          max: 100,
+          maxTicksLimit: 7
         },
         gridLines: {
           display: true
@@ -40,7 +40,7 @@ var myLineChart = new Chart(ctx, {
       }],
     },
     legend: {
-      display: false
+      display: true
     }
   }
 });

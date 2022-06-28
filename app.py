@@ -1,11 +1,12 @@
+import requests
 from flask import Flask,render_template
 
 app = Flask(__name__)
 
+# data_list = list(DWdb_url.CrawlingInfo_URL.fine()) # index.html 에 존재하는 태그로 넘길 데이터 
 @app.route("/")
-
 def index():
-    return render_template('index.html')
+    return render_template('index.html') # 페이지 경로 설정 
 
 @app.route('/login')
 def login():
@@ -49,6 +50,14 @@ def register():
 @app.route('/password')
 def password():
     return render_template('password.html')
+
+# @app.route('/post', methods=['GET', ['POST']])
+# def post():
+#     if requests.method == 'POST':
+#         value = requests.form['id_name']
+#         value = str(value)
+#         print(value)
+#     return render_template('post.html') # 해당 html 수정 필요 
 
 
 if __name__ == '__main__': ## 서버 실행
