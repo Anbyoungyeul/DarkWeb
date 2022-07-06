@@ -10,7 +10,7 @@ def index():
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    return render_template('login.html') # 각 페이지들에 대해 경로 설정
 
 @app.route('/light_Sidenav')
 def light_Sidenav():
