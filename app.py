@@ -4,6 +4,7 @@ from flask import Flask,render_template
 app = Flask(__name__)
 
 # data_list = list(DWdb_url.CrawlingInfo_URL.fine()) # index.html 에 존재하는 태그로 넘길 데이터 
+# 리턴 함수 리다이렉션 함수로 수정해야함
 @app.route("/")
 def index():
     return render_template('index.html') # 페이지 경로 설정 
